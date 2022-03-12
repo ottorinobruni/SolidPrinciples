@@ -1,0 +1,52 @@
+﻿/*
+Mobile Samples
+*/
+
+/* Mobile Data */
+{
+  "Type": "Mobile",
+  "Manufacturer": "Apple",
+  "Price": 999,
+  "Sim": "Dual SIM"
+}
+
+/* No Data */
+{
+  "Type": "Mobile"
+}
+
+
+/*
+Tablet Samples
+*/
+
+/* Tablet Data */
+{
+  "Type": "Tablet",
+  "Manufacturer": "Apple",
+  "Price": 599,
+  "Pencil": "Pencil 2"
+}
+
+/* No Data */
+{
+  "Type": "Tablet"
+}
+
+
+/*
+Desktop Samples
+*/
+
+/* Tablet Data */
+{
+  "Type": "Desktop",
+  "Manufacturer": "Apple",
+  "Price": 1999,
+  "Monitor": "34-inch
+}
+
+/* No Data */
+{
+  "Type": "Desktop"
+}
