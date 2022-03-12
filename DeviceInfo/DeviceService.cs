@@ -1,7 +1,4 @@
 ﻿using System;
-using System.IO;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 
 namespace DeviceInfo
 {
@@ -11,24 +8,24 @@ namespace DeviceInfo
     /// </summary>
     public class DeviceService
     {
+        public ConsoleLog Log { get; set; } = new ConsoleLog();
+        public FileDataSource DataSource { get; set; } = new FileDataSource();
+        public JsonDataSerializer DeviceSerializer { get; set; } = new JsonDataSerializer();
         public decimal Rating { get; set; } = 0;
         
         public void Evaluate()
         {
-            // load data - open file deviceData.json
-            string dataJson = File.ReadAllText("deviceData.json");
+            string dataJson = DataSource.GetDeviceFromSource();
 
-            var options = new JsonSerializerOptions();
-            options.Converters.Add(new JsonStringEnumConverter());
-            var device = JsonSerializer.Deserialize<Device>(dataJson, options);
+            var device = DeviceSerializer.GetDeviceFromJsonString(dataJson);
 
             switch (device.Type)
             {
                 case DeviceType.Mobile:
-                    Console.WriteLine("Evaluating Mobile device...");
+                    Log.WriteLine("Evaluating Mobile device...");
                     if (String.IsNullOrEmpty(device.Sim))
                     {
-                        Console.WriteLine("Mobile data must specify Sim!");
+                        Log.WriteLine("Mobile data must specify Sim!");
                         return;
                     }
 
@@ -48,10 +45,10 @@ namespace DeviceInfo
 
                     break;
                 case DeviceType.Tablet:
-                    Console.WriteLine("Evaluating Tablet device...");
+                    Log.WriteLine("Evaluating Tablet device...");
                     if (String.IsNullOrEmpty(device.Pencil))
                     {
-                        Console.WriteLine("Tablet data must specify Pencil!");
+                        Log.WriteLine("Tablet data must specify Pencil!");
                         return;
                     }
 
@@ -70,10 +67,10 @@ namespace DeviceInfo
                     }
                     break;
                 case DeviceType.Desktop:
-                    Console.WriteLine("Evaluating Desktop device...");
+                    Log.WriteLine("Evaluating Desktop device...");
                     if (String.IsNullOrEmpty(device.Monitor))
                     {
-                        Console.WriteLine("Desktop data must specify Monitor!");
+                        Log.WriteLine("Desktop data must specify Monitor!");
                         return;
                     }
 
@@ -96,11 +93,11 @@ namespace DeviceInfo
                     }
                     break;
                 default:
-                    Console.WriteLine("Unknown Device type");
+                    Log.WriteLine("Unknown Device type");
                     break;
             }
 
-            Console.WriteLine("Evaluation completed.");
+            Log.WriteLine("Evaluation completed.");
         }
 
         public bool IsBestBuy()

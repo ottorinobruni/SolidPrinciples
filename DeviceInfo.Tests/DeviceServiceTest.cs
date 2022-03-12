@@ -8,7 +8,7 @@ namespace DeviceInfo.Tests
     public class DeviceServiceTest
     {
         [Fact]
-        public void Evaluate_WhenAppleMobileDualSim_DeviceShouldBeBestBuy()
+        public void Evaluate_WhenMobileAppleDualSim_DeviceShouldBeBestBuy()
         {
             // Setup
             var device = new Device
