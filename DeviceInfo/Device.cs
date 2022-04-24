@@ -17,5 +17,9 @@
         #region Life Desktop
         public string Monitor { get; set; }
         #endregion
+
+        #region Life IoT
+        public string VoiceControl { get; set; }
+        #endregion
     }
 }

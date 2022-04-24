@@ -43,10 +43,27 @@ Desktop Samples
   "Type": "Desktop",
   "Manufacturer": "Apple",
   "Price": 1999,
-  "Monitor": "34-inch
+  "Monitor": "34-inch"
 }
 
 /* No Data */
 {
   "Type": "Desktop"
+}
+
+/*
+IoT Samples
+*/
+
+/* Tablet Data */
+{
+  "Type": "IoT",
+  "Manufacturer": "Amazon",
+  "Price": 39,
+  "VoiceControl": "true"
+}
+
+/* No Data */
+{
+  "Type": "IoT"
 }
