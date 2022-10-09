@@ -8,7 +8,7 @@ namespace DeviceInfo
     /// </summary>
     public class DeviceService
     {
-        public ConsoleLog Log { get; set; } = new ConsoleLog();
+        public ILog Log { get; set; } = new ConsoleLog();
         public FileDataSource DataSource { get; set; } = new FileDataSource();
         public JsonDataSerializer DeviceSerializer { get; set; } = new JsonDataSerializer();
         public decimal Rating { get; set; } = 0;

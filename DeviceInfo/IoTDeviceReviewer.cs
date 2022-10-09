@@ -4,17 +4,17 @@ namespace DeviceInfo
 {
     internal class IoTDeviceReviewer : Reviewer
     {
-        public IoTDeviceReviewer(DeviceService service, ConsoleLog log)
-            : base(service, log)
+        public IoTDeviceReviewer(DeviceService service)
+            : base(service)
         {
         }
 
         public override void Evaluate(Device device)
         {
-            log.WriteLine("Evaluating IoT device...");
+            Log.WriteLine("Evaluating IoT device...");
             if (String.IsNullOrEmpty(device.VoiceControl))
             {
-                log.WriteLine("IoT data must specify VoiceControl!");
+                Log.WriteLine("IoT data must specify VoiceControl!");
                 return;
             }
 

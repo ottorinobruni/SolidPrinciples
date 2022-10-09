@@ -8,15 +8,15 @@ namespace DeviceInfo
             switch (device.Type)
             {
                 case DeviceType.Mobile:
-                    return new MobileDeviceReviewer(service, service.Log);
+                    return new MobileDeviceReviewer(service);
                 case DeviceType.Tablet:
-                    return new TabletDeviceReviewer(service, service.Log);
+                    return new TabletDeviceReviewer(service);
                 case DeviceType.Desktop:
-                    return new DesktopDeviceReviewer(service, service.Log);
+                    return new DesktopDeviceReviewer(service);
                 case DeviceType.IoT:
-                    return new IoTDeviceReviewer(service, service.Log);
+                    return new IoTDeviceReviewer(service);
                 default:
-                    return new UnknownDeviceReviewer(service, service.Log);
+                    return new UnknownDeviceReviewer(service);
             }
         }
     }

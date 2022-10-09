@@ -2,14 +2,14 @@
 {
     public class UnknownDeviceReviewer : Reviewer
     {
-        public UnknownDeviceReviewer(DeviceService service, ConsoleLog log)
-            : base(service, log)
+        public UnknownDeviceReviewer(DeviceService service)
+            : base(service)
         {
         }
 
         public override void Evaluate(Device device)
         {
-            log.WriteLine("Unknown Device Type");
+            Log.WriteLine("Unknown Device Type");
         }
     }
 }

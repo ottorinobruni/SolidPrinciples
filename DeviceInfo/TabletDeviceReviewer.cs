@@ -3,17 +3,17 @@ namespace DeviceInfo
 {
     public class TabletDeviceReviewer : Reviewer
     {
-        public TabletDeviceReviewer(DeviceService service, ConsoleLog log)
-            : base(service, log)
+        public TabletDeviceReviewer(DeviceService service)
+            : base(service)
         {
         }
 
         public override void Evaluate(Device device)
         {
-            log.WriteLine("Evaluating Tablet device...");
+            Log.WriteLine("Evaluating Tablet device...");
             if (String.IsNullOrEmpty(device.Pencil))
             {
-                log.WriteLine("Tablet data must specify Pencil!");
+                Log.WriteLine("Tablet data must specify Pencil!");
                 return;
             }
 

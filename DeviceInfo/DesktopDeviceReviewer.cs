@@ -3,17 +3,17 @@ namespace DeviceInfo
 {
     public class DesktopDeviceReviewer : Reviewer
     {
-        public DesktopDeviceReviewer(DeviceService service, ConsoleLog log)
-            : base(service, log)
+        public DesktopDeviceReviewer(DeviceService service)
+            : base(service)
         {
         }
 
         public override void Evaluate(Device device)
         {
-            log.WriteLine("Evaluating Desktop device...");
+            Log.WriteLine("Evaluating Desktop device...");
             if (String.IsNullOrEmpty(device.Monitor))
             {
-                log.WriteLine("Desktop data must specify Monitor!");
+                Log.WriteLine("Desktop data must specify Monitor!");
                 return;
             }
 

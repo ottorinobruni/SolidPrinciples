@@ -3,17 +3,17 @@ namespace DeviceInfo
 {
     public class MobileDeviceReviewer : Reviewer
     {
-        public MobileDeviceReviewer(DeviceService service, ConsoleLog log)
-            : base(service, log)
+        public MobileDeviceReviewer(DeviceService service)
+            : base(service)
         {
         }
 
         public override void Evaluate(Device device)
         {
-            log.WriteLine("Evaluating Mobile device...");
+            Log.WriteLine("Evaluating Mobile device...");
             if (String.IsNullOrEmpty(device.Sim))
             {
-                log.WriteLine("Mobile data must specify Sim!");
+                Log.WriteLine("Mobile data must specify Sim!");
                 return;
             }
 

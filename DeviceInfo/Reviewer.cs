@@ -4,12 +4,11 @@ namespace DeviceInfo
     public abstract class Reviewer
     {
         protected readonly DeviceService service;
-        protected readonly ConsoleLog log;
+        protected ILog Log { get; set; } = new ConsoleLog();
 
-        public Reviewer(DeviceService service, ConsoleLog log)
+        public Reviewer(DeviceService service)
         {
             this.service = service;
-            this.log = log;
         }
 
         public abstract void Evaluate(Device device);
