@@ -3,13 +3,13 @@ A sample application used to demonstrate SOLID principles in C#, [Solid Principl
 
 The master branch shows the initial code used in the example.  There are separate tags and branches for each of the all solid principles that you can review or download as well. Here are links you can use to jump to these tagged versions in your browser:
 
-[START](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/START)
-[SRP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/SRP-END)
-[OCP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/OCP-END)
-[LSP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/LSP-END)
-[ISP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/ISP-END)
-[DIP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/DIP-END)
-[FINAL](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/FINAL)
+- [START](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/START)
+- [SRP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/SRP-END)
+- [OCP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/OCP-END)
+- [LSP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/LSP-END)
+- [ISP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/ISP-END)
+- [DIP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/DIP-END)
+- [FINAL](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/FINAL)
 
 ## Usage Instructions
 The `master` branch shows the *initial* code used in the tutorial. It's the starting point.
