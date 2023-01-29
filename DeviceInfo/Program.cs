@@ -8,7 +8,7 @@ namespace DeviceInfo
         {
             Console.WriteLine("Start Device Info");
 
-            var deviceService = new DeviceService();
+            var deviceService = new DeviceService(new ConsoleLog());
             deviceService.Evaluate();
 
             if (deviceService.IsBestBuy())

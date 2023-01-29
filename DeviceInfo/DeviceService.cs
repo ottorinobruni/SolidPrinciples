@@ -8,11 +8,16 @@ namespace DeviceInfo
     /// </summary>
     public class DeviceService
     {
-        public ILog Log { get; set; } = new ConsoleLog();
+        private readonly ILog log;
         public FileDataSource DataSource { get; set; } = new FileDataSource();
         public JsonDataSerializer DeviceSerializer { get; set; } = new JsonDataSerializer();
         public decimal Rating { get; set; } = 0;
-        
+
+        public DeviceService(ILog log)
+        {
+            this.log = log;
+        }
+
         public void Evaluate()
         {
             string dataJson = DataSource.GetDeviceFromSource();
@@ -24,7 +29,7 @@ namespace DeviceInfo
             var reviewer = factory.Create(device, this);
             reviewer.Evaluate(device);
 
-            Log.WriteLine("Evaluation completed.");
+            log.WriteLine("Evaluation completed.");
         }
 
         public bool IsBestBuy()
