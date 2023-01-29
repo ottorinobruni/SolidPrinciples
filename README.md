@@ -12,7 +12,8 @@ There are separate tags and branches for each of the all solid principles that y
 - [ISP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/ISP-END)
 - [DIP-END](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/DIP-END)
 - [FINAL](https://github.com/ottorinobruni/SolidPrinciples/releases/tag/FINAL)
-- 
+
+
 ## Reporting Bugs and Asking Questions
 Please use [Issues](https://github.com/ottorinobruni/SolidPrinciples/issues) to report actual bugs in the code.
 
