@@ -3,37 +3,38 @@ namespace DeviceInfo
 {
     public class DesktopDeviceReviewer : Reviewer
     {
-        public DesktopDeviceReviewer(DeviceService service)
-            : base(service)
+        public DesktopDeviceReviewer(ILog log)
+            : base(log)
         {
         }
 
-        public override void Evaluate(Device device)
+        public override decimal Evaluate(Device device)
         {
-            Log.WriteLine("Evaluating Desktop device...");
+            log.WriteLine("Evaluating Desktop device...");
             if (String.IsNullOrEmpty(device.Monitor))
             {
-                Log.WriteLine("Desktop data must specify Monitor!");
-                return;
+                log.WriteLine("Desktop data must specify Monitor!");
+                return 0;
             }
 
             if (device.Manufacturer.Equals("Apple"))
             {
-                service.Rating = 9;
+                Rating = 9;
             }
             else
             {
-                service.Rating = 7;
+                Rating = 7;
             }
 
             if (device.Monitor.Equals("34-inch"))
             {
-                service.Rating++;
+                Rating++;
             }
             else
             {
-                service.Rating--;
+                Rating--;
             }
+            return Rating;
         }
     }
 }

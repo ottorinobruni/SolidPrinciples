@@ -2,14 +2,15 @@
 {
     public class UnknownDeviceReviewer : Reviewer
     {
-        public UnknownDeviceReviewer(DeviceService service)
-            : base(service)
+        public UnknownDeviceReviewer(ILog log)
+            : base(log)
         {
         }
 
-        public override void Evaluate(Device device)
+        public override decimal Evaluate(Device device)
         {
-            Log.WriteLine("Unknown Device Type");
+            log.WriteLine("Unknown Device Type");
+            return 0;
         }
     }
 }

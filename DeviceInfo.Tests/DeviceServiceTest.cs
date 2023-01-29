@@ -20,7 +20,7 @@ namespace DeviceInfo.Tests
             };
             string json = JsonSerializer.Serialize<Device>(device);
             File.WriteAllText("deviceData.json", json);
-            var deviceService = new DeviceService(new ConsoleLog());
+            var deviceService = new DeviceService(new ConsoleLog(), new FileDataSource(), new JsonDataSerializer());
 
             // Execute
             deviceService.Evaluate();
@@ -43,7 +43,7 @@ namespace DeviceInfo.Tests
             };
             string json = JsonSerializer.Serialize<Device>(device);
             File.WriteAllText("deviceData.json", json);
-            var deviceService = new DeviceService(new ConsoleLog());
+            var deviceService = new DeviceService(new ConsoleLog(), new FileDataSource(), new JsonDataSerializer());
 
             // Execute
             deviceService.Evaluate();

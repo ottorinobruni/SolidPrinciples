@@ -3,33 +3,35 @@ namespace DeviceInfo
 {
     public class MobileDeviceReviewer : Reviewer
     {
-        public MobileDeviceReviewer(DeviceService service)
-            : base(service)
+        public MobileDeviceReviewer(ILog log)
+            : base(log)
         {
         }
 
-        public override void Evaluate(Device device)
+        public override decimal Evaluate(Device device)
         {
-            Log.WriteLine("Evaluating Mobile device...");
+            log.WriteLine("Evaluating Mobile device...");
             if (String.IsNullOrEmpty(device.Sim))
             {
-                Log.WriteLine("Mobile data must specify Sim!");
-                return;
+                log.WriteLine("Mobile data must specify Sim!");
+                return 0;
             }
 
             if (device.Manufacturer.Equals("Apple"))
             {
-                service.Rating = 8;
+                Rating = 8;
             }
             else
             {
-                service.Rating = 6;
+                Rating = 6;
             }
 
             if (device.Sim.Equals("Dual SIM"))
             {
-                service.Rating++;
+                Rating++;
             }
+
+            return Rating;
         }
     }
 }

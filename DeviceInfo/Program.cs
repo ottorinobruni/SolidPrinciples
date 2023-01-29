@@ -8,12 +8,12 @@ namespace DeviceInfo
         {
             Console.WriteLine("Start Device Info");
 
-            var deviceService = new DeviceService(new ConsoleLog());
+            var deviceService = new DeviceService(new ConsoleLog(), new FileDataSource(), new JsonDataSerializer());
             deviceService.Evaluate();
 
             if (deviceService.IsBestBuy())
             {
-                Console.WriteLine($"Congratulation! This is a Best Buy: {deviceService.Rating}");
+                Console.WriteLine($"Congratulation! This is a Best Buy!");
             }
             else
             {

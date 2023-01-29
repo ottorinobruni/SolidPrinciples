@@ -3,20 +3,27 @@ namespace DeviceInfo
 {
     public class ReviewerFactory
     {
-        public Reviewer Create(Device device, DeviceService service)
+        private readonly ILog log;
+
+        public ReviewerFactory(ILog log)
+        {
+            this.log = log;
+        }
+
+        public Reviewer Create(Device device)
         {
             switch (device.Type)
             {
                 case DeviceType.Mobile:
-                    return new MobileDeviceReviewer(service);
+                    return new MobileDeviceReviewer(log);
                 case DeviceType.Tablet:
-                    return new TabletDeviceReviewer(service);
+                    return new TabletDeviceReviewer(log);
                 case DeviceType.Desktop:
-                    return new DesktopDeviceReviewer(service);
+                    return new DesktopDeviceReviewer(log);
                 case DeviceType.IoT:
-                    return new IoTDeviceReviewer(service);
+                    return new IoTDeviceReviewer(log);
                 default:
-                    return new UnknownDeviceReviewer(service);
+                    return new UnknownDeviceReviewer(log);
             }
         }
     }

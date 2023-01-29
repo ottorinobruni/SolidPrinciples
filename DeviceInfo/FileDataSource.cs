@@ -3,7 +3,12 @@ using System.IO;
 
 namespace DeviceInfo
 {
-    public class FileDataSource
+    public interface IFileDataSource
+    {
+        string GetDeviceFromSource();
+    }
+
+    public class FileDataSource : IFileDataSource
     {
         public string GetDeviceFromSource()
         {

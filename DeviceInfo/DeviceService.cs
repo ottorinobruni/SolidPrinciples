@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DeviceInfo
+﻿namespace DeviceInfo
 {
     /// <summary>
     /// The DeviceService reads the device data details from a file and produces a numeric 
@@ -9,32 +7,34 @@ namespace DeviceInfo
     public class DeviceService
     {
         private readonly ILog log;
-        public FileDataSource DataSource { get; set; } = new FileDataSource();
-        public JsonDataSerializer DeviceSerializer { get; set; } = new JsonDataSerializer();
-        public decimal Rating { get; set; } = 0;
+        private readonly IFileDataSource dataSource;
+        private readonly IJsonDataSerializer deviceSerializer;
+        private decimal rating = 0;
 
-        public DeviceService(ILog log)
+        public DeviceService(ILog log, IFileDataSource dataSource, IJsonDataSerializer deviceSerializer)
         {
             this.log = log;
+            this.dataSource = dataSource;
+            this.deviceSerializer = deviceSerializer;
         }
 
         public void Evaluate()
         {
-            string dataJson = DataSource.GetDeviceFromSource();
+            string dataJson = dataSource.GetDeviceFromSource();
 
-            var device = DeviceSerializer.GetDeviceFromJsonString(dataJson);
+            var device = deviceSerializer.GetDeviceFromJsonString(dataJson);
 
-            var factory = new ReviewerFactory();
+            var factory = new ReviewerFactory(this.log);
 
-            var reviewer = factory.Create(device, this);
-            reviewer.Evaluate(device);
+            var reviewer = factory.Create(device);
+            rating = reviewer.Evaluate(device);
 
             log.WriteLine("Evaluation completed.");
         }
 
         public bool IsBestBuy()
         {
-            return (Rating >= 9);
+            return (rating >= 9);
         }
     }
 }

@@ -3,14 +3,14 @@ namespace DeviceInfo
 {
     public abstract class Reviewer
     {
-        protected readonly DeviceService service;
-        protected ILog Log { get; set; } = new ConsoleLog();
+        public readonly ILog log;
+        public decimal Rating { get; set; } = 0;
 
-        public Reviewer(DeviceService service)
+        public Reviewer(ILog log)
         {
-            this.service = service;
+            this.log = log;
         }
 
-        public abstract void Evaluate(Device device);
+        public abstract decimal Evaluate(Device device);
     }
 }
