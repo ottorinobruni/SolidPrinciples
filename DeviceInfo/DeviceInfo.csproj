@@ -6,8 +6,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="UI\" />
+    <None Remove="Core\" />
+    <None Remove="Infrastructure\" />
+    <None Remove="Core\Interfaces\" />
+    <None Remove="Core\Models\" />
+    <None Remove="Core\Reviewers\" />
+    <None Remove="Infrastructure\Loggers\" />
+    <None Remove="Infrastructure\Serializers\" />
+    <None Remove="Infrastructure\PolicySources\" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="deviceData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UI\" />
+    <Folder Include="Core\" />
+    <Folder Include="Infrastructure\" />
+    <Folder Include="Core\Interfaces\" />
+    <Folder Include="Core\Models\" />
+    <Folder Include="Core\Reviewers\" />
+    <Folder Include="Infrastructure\Loggers\" />
+    <Folder Include="Infrastructure\Serializers\" />
+    <Folder Include="Infrastructure\PolicySources\" />
   </ItemGroup>
 </Project>
